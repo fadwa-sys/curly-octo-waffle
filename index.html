@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Betterways Mini-Catalogue 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --primary-blue: #0D1B2A;
+            --betterways-green: #8BC34A; 
+            --soft-white: #F8FAF6;
+            --text-grey: #475569;
+            --accent-glow: rgba(139, 195, 74, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #F1F5F9;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 50px;
+            padding: 50px 0;
+            font-family: 'Lato', sans-serif;
+            color: var(--text-grey);
+        }
+
+        /* Slide Container */
+        .slide {
+            width: 1100px;
+            height: 650px;
+            background: white;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            padding: 60px;
+        }
+
+        /* Typography */
+        h1, h2, h3 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--primary-blue);
+            line-height: 1.2;
+        }
+
+        .section-title {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            border-left: 6px solid var(--betterways-green);
+            padding-left: 20px;
+            text-transform: uppercase;
+        }
+
+        /* Image Styling */
+        .img-container {
+            width: 100%;
+            height: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .img-container:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Layouts */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            flex: 1;
+            align-items: center;
+        }
+
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .card {
+            background: var(--soft-white);
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            transition: 0.3s;
+            border: 1px solid transparent;
+        }
+
+        .card:hover {
+            border-color: var(--betterways-green);
+            transform: translateY(-5px);
+        }
+
+        .card i {
+            font-size: 32px;
+            color: var(--betterways-green);
+            margin-bottom: 15px;
+        }
+
+        /* Hero Slide Specific */
+        .hero {
+            background: linear-gradient(rgba(13, 27, 42, 0.85), rgba(13, 27, 42, 0.85)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero h1 { color: white; font-size: 64px; letter-spacing: 4px; }
+        .hero p { color: var(--betterways-green); font-size: 20px; letter-spacing: 6px; font-weight: 600; margin-top: 10px; }
+
+        /* Buttons & Links */
+        .btn-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: white;
+            padding: 12px 24px;
+            border-radius: 30px;
+            text-decoration: none;
+            color: var(--primary-blue);
+            font-weight: 700;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: 0.3s;
+            margin-top: 10px;
+        }
+
+        .btn-link:hover {
+            background: var(--betterways-green);
+            color: white;
+        }
+
+        /* Final Slide Contact */
+        .contact-box {
+            background: var(--primary-blue);
+            color: white;
+            padding: 40px;
+            border-radius: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .qr-placeholder {
+            width: 120px;
+            height: 120px;
+            background: white;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #333;
+            font-size: 10px;
+            text-align: center;
+            padding: 5px;
+            font-weight: bold;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        /* Animation Keyframes */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .slide > * {
+            animation: fadeIn 0.8s ease forwards;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- SLIDE 1: COUVERTURE -->
+    <div class="slide hero">
+        <div style="font-size: 100px; color: var(--betterways-green); font-weight: 800; margin-bottom: -15px;">B</div>
+        <h1>BETTERWAYS</h1>
+        <p>FOR BETTER DAYS</p>
+        <div style="margin-top: 40px; height: 3px; width: 80px; background: var(--betterways-green); margin-left: auto; margin-right: auto;"></div>
+        <div style="margin-top: 30px; font-size: 18px; opacity: 0.9;">Formation • Digital • Conseil • Coaching</div>
+        <div style="margin-top: 50px; background: rgba(255,255,255,0.1); padding: 10px 30px; border-radius: 50px; font-weight: 600; font-size: 14px;">CATALOGUE DE FORMATION | JANVIER 2026</div>
+    </div>
+
+    <!-- SLIDE 2: INTRODUCTION -->
+    <div class="slide">
+        <h2 class="section-title">À Propos de Nous</h2>
+        <div class="grid-2">
+            <div class="img-container">
+                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800" alt="Équipe professionnelle en réunion">
+            </div>
+            <div>
+                <h3>Votre partenaire de croissance</h3>
+                <p style="margin: 20px 0;">Betterways est une entreprise marocaine spécialisée dans l'amélioration continue à travers les leviers du digital et du capital humain.</p>
+                <p>Nous accompagnons les organisations au Maroc et en Afrique pour relever les défis de demain grâce au <strong>Reskilling</strong> et à l'<strong>Upskilling</strong>.</p>
+                <div style="margin-top: 30px; display: flex; gap: 15px;">
+                    <div style="flex: 1; background: var(--soft-white); padding: 15px; border-radius: 10px; border-bottom: 3px solid var(--betterways-green);">
+                        <strong style="color: var(--primary-blue);">Vision</strong><br><small>Inspirer l'excellence opérationnelle.</small>
+                    </div>
+                    <div style="flex: 1; background: var(--soft-white); padding: 15px; border-radius: 10px; border-bottom: 3px solid var(--betterways-green);">
+                        <strong style="color: var(--primary-blue);">Valeurs</strong><br><small>Innovation, Agilité & Résilience.</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 3: LES 4 PÔLES -->
+    <div class="slide">
+        <h2 class="section-title">Nos Domaines d'Action</h2>
+        <div class="cards-container">
+            <div class="card">
+                <i class="fa-solid fa-graduation-cap"></i>
+                <h3>Formation</h3>
+                <p><small>Programmes certifiants et sur-mesure pour tous niveaux.</small></p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-microchip"></i>
+                <h3>Digital</h3>
+                <p><small>IA, Data, Développement et Transformation Tech.</small></p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-briefcase"></i>
+                <h3>Conseil</h3>
+                <p><small>Stratégie RH et ingénierie de formation optimisée.</small></p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-arrows-to-dot"></i>
+                <h3>Coaching</h3>
+                <p><small>Accompagnement de leaders et intelligence collective.</small></p>
+            </div>
+        </div>
+        <div class="grid-2" style="margin-top: 40px; height: 200px;">
+            <div class="img-container">
+                <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=800" alt="Formation interactive">
+            </div>
+            <div class="img-container">
+                <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800" alt="Technologie et IA">
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 4: MANAGEMENT & LEADERSHIP -->
+    <div class="slide">
+        <h2 class="section-title">Management & Leadership</h2>
+        <div class="grid-2">
+            <div>
+                <ul style="list-style: none;">
+                    <li style="margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                        <i class="fa-solid fa-circle-check" style="color: var(--betterways-green);"></i>
+                        <strong>Leadership stratégique</strong>
+                    </li>
+                    <li style="margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                        <i class="fa-solid fa-circle-check" style="color: var(--betterways-green);"></i>
+                        <strong>Management de Projets (PMP)</strong>
+                    </li>
+                    <li style="margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                        <i class="fa-solid fa-circle-check" style="color: var(--betterways-green);"></i>
+                        <strong>Intelligence Émotionnelle</strong>
+                    </li>
+                    <li style="margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                        <i class="fa-solid fa-circle-check" style="color: var(--betterways-green);"></i>
+                        <strong>Management de l'Innovation</strong>
+                    </li>
+                </ul>
+                <div style="background: var(--accent-glow); padding: 20px; border-radius: 12px; margin-top: 20px;">
+                    <p style="font-size: 14px; font-style: italic;">"Passer du statut de Manager à celui de Leader-Coach pour inspirer la performance durable."</p>
+                </div>
+            </div>
+            <div class="img-container">
+                <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=800" alt="Leadership et stratégie">
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 5: IA & DIGITAL -->
+    <div class="slide">
+        <h2 class="section-title">Intelligence Artificielle & Digital</h2>
+        <div class="grid-2">
+            <div class="img-container">
+                <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800" alt="Visualisation de l'IA">
+            </div>
+            <div>
+                <h3 style="color: var(--betterways-green);">Accélérez votre futur</h3>
+                <p style="margin: 15px 0;">Le numérique n'est plus une option. Nos formations vous préparent à l'économie de la donnée.</p>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                    <div style="background: var(--soft-white); padding: 15px; border-radius: 8px; font-size: 14px; border-left: 3px solid var(--betterways-green);"><strong>IA Générative</strong><br>Prompt Engineering.</div>
+                    <div style="background: var(--soft-white); padding: 15px; border-radius: 8px; font-size: 14px; border-left: 3px solid var(--betterways-green);"><strong>Data Science</strong><br>Power BI & Python.</div>
+                    <div style="background: var(--soft-white); padding: 15px; border-radius: 8px; font-size: 14px; border-left: 3px solid var(--betterways-green);"><strong>Cloud Admin</strong><br>Azure & AWS.</div>
+                    <div style="background: var(--soft-white); padding: 15px; border-radius: 8px; font-size: 14px; border-left: 3px solid var(--betterways-green);"><strong>DevOps</strong><br>Docker & Jenkins.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 6: AGILE & LEAN -->
+    <div class="slide">
+        <h2 class="section-title">Agilité & Lean Management</h2>
+        <div class="grid-2">
+            <div>
+                <h3>L'Excellence Opérationnelle</h3>
+                <p style="margin: 20px 0;">Optimisez vos processus et gagnez en réactivité grâce aux cadres méthodologiques les plus performants.</p>
+                <div style="border-left: 4px solid var(--betterways-green); padding-left: 20px;">
+                    <p><strong>• Agile :</strong> Scrum Master, Product Owner, SAFe.</p>
+                    <p><strong>• Lean :</strong> Lean Management, Six Sigma Green & Black Belt.</p>
+                    <p><strong>• Design Thinking :</strong> Co-créer l'innovation.</p>
+                </div>
+            </div>
+            <div class="img-container">
+                <img src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&q=80&w=800" alt="Méthode Agile et Kanban">
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 7: CONTACT FINAL -->
+    <div class="slide">
+        <h2 class="section-title">Prêt à Transformer vos Talents ?</h2>
+        <div class="contact-box">
+            <div>
+                <h3>Contactez Betterways</h3>
+                <p style="margin: 15px 0; font-size: 14px; opacity: 0.8;">Nos experts sont à votre écoute pour concevoir votre parcours sur-mesure.</p>
+                
+                <div style="margin-top: 25px;">
+                    <div style="margin-bottom: 15px;"><i class="fa-solid fa-phone" style="color: var(--betterways-green); margin-right: 10px;"></i> +212 707 17 19 80</div>
+                    <div style="margin-bottom: 15px;"><i class="fa-solid fa-envelope" style="color: var(--betterways-green); margin-right: 10px;"></i> contact@betterways.ma</div>
+                    <div style="margin-bottom: 15px;"><i class="fa-solid fa-location-dot" style="color: var(--betterways-green); margin-right: 10px;"></i> Maroc & Afrique</div>
+                </div>
+
+                <div style="margin-top: 30px; display: flex; gap: 15px;">
+                    <a href="https://www.linkedin.com/company/betterways-maroc/" target="_blank" class="btn-link">
+                        <i class="fa-brands fa-linkedin"></i> LinkedIn
+                    </a>
+                    <a href="https://wa.me/212707171980" target="_blank" class="btn-link">
+                        <i class="fa-brands fa-whatsapp"></i> WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; border-left: 1px solid rgba(255,255,255,0.1);">
+                <p style="margin-bottom: 20px; font-weight: 600; font-size: 14px;">SCANNÉ POUR NOUS REJOINDRE</p>
+                <div style="display: flex; gap: 20px;">
+                    <div class="qr-placeholder"><i class="fa-brands fa-linkedin" style="font-size: 40px; color: #0077b5;"></i></div>
+                    <div class="qr-placeholder"><i class="fa-brands fa-whatsapp" style="font-size: 40px; color: #25D366;"></i></div>
+                </div>
+                <div style="margin-top: 30px; text-align: center;">
+                    <div style="font-family: 'Poppins'; font-size: 24px; color: var(--betterways-green);">Betterways</div>
+                    <div style="font-size: 10px; letter-spacing: 2px;">FOR BETTER DAYS</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
